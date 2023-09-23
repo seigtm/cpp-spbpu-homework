@@ -7,7 +7,8 @@
 
 int main() {
     std::cout << "Enter two integers, a and b to calculate a^b: ";
-    auto a{ 0 }, b{ 0 };
+    auto a{ 0 };
+    auto b{ 0 };
     if(!(std::cin >> a >> b)) {
         std::cerr << "Error: Incorrect input.\nPlease enter two integers.\n";
         return 1;

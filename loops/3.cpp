@@ -11,7 +11,8 @@ constexpr uint64_t FIB_END{ 1'000'000 };
 }  // Anonymous namespace.
 
 int main() {
-    uint64_t num1{ 1 }, num2{ 1 };
+    uint64_t num1{ 1 };
+    uint64_t num2{ 1 };
     std::cout << num1 << " ";
 
     while(num2 <= FIB_END) {

@@ -1,1 +1,4 @@
 *.out
+build/
+.vscode/
+CMakeLists.txt

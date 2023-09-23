@@ -19,10 +19,10 @@ std::string intToRoman(int num) {
     };
 
     std::string result{};
-    for(const auto& entry : romanSymbols) {
-        while(num >= entry.first) {
-            result.append(entry.second);
-            num -= entry.first;
+    for(const auto& [arabic, roman] : romanSymbols) {
+        while(num >= arabic) {
+            result.append(roman);
+            num -= arabic;
         }
     }
 
