@@ -13,10 +13,10 @@ int main() {
     std::cin >> input;
 
     if(!std::all_of(input.begin(), input.end(), isdigit)) {
-        std::cerr << "Error: Not an integer was entered." << std::endl;
+        std::cerr << "Error: Not an integer was entered.\n";
         return 1;
     }
 
     const auto sum{ std::accumulate(input.begin(), input.end(), 0) - ('0' * input.length()) };
-    std::cout << "The sum of the digits of the number: " << sum << std::endl;
+    std::cout << "The sum of the digits of the number: " << sum << "\n";
 }
