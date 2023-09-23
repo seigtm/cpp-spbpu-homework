@@ -1,5 +1,5 @@
-// 1. Given the coordinates of a rook positioned on a chessboard square 
-//    (row number and column number), write a loop (or loops) to 
+// 1. Given the coordinates of a rook positioned on a chessboard square
+//    (row number and column number), write a loop (or loops) to
 //    output the coordinates of all squares under attack.
 //    The rook can move any number of squares horizontally or vertically.
 

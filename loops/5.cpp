@@ -13,7 +13,7 @@ int main() {
         return 1;
     }
 
-    // NOTE: I'm ignoring the 0^0 case here 
+    // NOTE: I'm ignoring the 0^0 case here
     //       and using a standard STL pow that says <0^0 == 1>.
     // ¯\_( ͡° ͜ʖ ͡°)_/¯
     const auto result{ std::pow(a, b) };
