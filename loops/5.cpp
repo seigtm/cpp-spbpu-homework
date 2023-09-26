@@ -18,8 +18,8 @@ int main() {
     //       and using a standard STL pow that says <0^0 == 1>.
     // ¯\_( ͡° ͜ʖ ͡°)_/¯
     const auto result{ std::pow(a, b) };
-    if(std::isnan(result) || std::isinf(result)) {
-        std::cerr << "Error: Overflow or NaN.\n";
+    if(std::isinf(result)) {
+        std::cerr << "Error: Overflow.\n";
         return 1;
     }
 
