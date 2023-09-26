@@ -33,7 +33,8 @@ int main() {
     std::cout << "Enter an integer (0 < int < 400): ";
     int num{};
     if(!(std::cin >> num) || 0 >= num || num >= 400) {
-        std::cerr << "Error: Incorrect input.\nPlease enter an integer between 1 and 399.\n";
+        std::cerr << "Error: Incorrect input.\n"
+                     "Please enter an integer between 1 and 399.\n";
         return 1;
     }
 
