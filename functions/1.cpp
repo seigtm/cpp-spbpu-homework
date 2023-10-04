@@ -11,6 +11,17 @@
 
 namespace setm {
 
+/**
+ * @brief Check if a specific digit is present in an integer.
+ *
+ * This function checks if the decimal digit specified by the first parameter
+ * is present in the decimal representation of the number specified by the
+ * second parameter.
+ *
+ * @param digit The decimal digit to check for presence.
+ * @param number The integer in which to check for the digit's presence.
+ * @return True if the digit is present in the number, false otherwise.
+ */
 bool digitExists(uint8_t digit, int64_t number) {
     number = std::abs(number);
     while((number > 0) && (number % 10 != digit))
