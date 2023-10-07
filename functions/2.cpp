@@ -2,7 +2,6 @@
 //    is a number that is divisible only(!) by 1 and itself (2, 3, 5, 7, 11, 13, ...).
 //    Write a program that outputs all prime positive numbers less than the specified one.
 
-#include <cmath>
 #include <iostream>
 
 namespace setm {
@@ -23,7 +22,7 @@ namespace setm {
  *
  * @see https://en.wikipedia.org/wiki/Prime_number
  */
-bool isPrime(unsigned long number) {
+constexpr bool isPrime(unsigned number) {
     if(number <= 1)
         return false;
     if(number <= 3)
@@ -31,7 +30,7 @@ bool isPrime(unsigned long number) {
     if(number % 2 == 0)
         return false;
 
-    for(auto divisor{ 3UL }; divisor * divisor <= number; divisor += 2)
+    for(unsigned long divisor{ 3 }; divisor * divisor <= number; divisor += 2)
         if(number % divisor == 0)
             return false;
 
@@ -41,10 +40,11 @@ bool isPrime(unsigned long number) {
 }  // namespace setm
 
 int main() {
-    constexpr auto lower_limit{ 2UL };
-    constexpr auto upper_limit{ 98UL };
-    for(auto number{ lower_limit }; number < upper_limit; ++number)
+    constexpr unsigned long lower_limit{ 2 };
+    constexpr unsigned long upper_limit{ 98 };
+    for(unsigned number{ lower_limit }; number < upper_limit; ++number)
         if(setm::isPrime(number))
-            std::cout << number << " ";
-    std::cout << "\n";
+            std::cout << number << ' ';
+    // Expected: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97.
+    std::cout << '\n';
 }
