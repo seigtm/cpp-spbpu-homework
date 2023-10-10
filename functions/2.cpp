@@ -30,7 +30,7 @@ constexpr bool isPrime(unsigned number) {
     if(number % 2 == 0)
         return false;
 
-    for(unsigned long divisor{ 3 }; divisor * divisor <= number; divisor += 2)
+    for(unsigned divisor{ 3 }; divisor * divisor <= number; divisor += 2)
         if(number % divisor == 0)
             return false;
 
@@ -40,8 +40,8 @@ constexpr bool isPrime(unsigned number) {
 }  // namespace setm
 
 int main() {
-    constexpr unsigned long lower_limit{ 2 };
-    constexpr unsigned long upper_limit{ 98 };
+    constexpr unsigned lower_limit{ 2 };
+    constexpr unsigned upper_limit{ 98 };
     for(unsigned number{ lower_limit }; number < upper_limit; ++number)
         if(setm::isPrime(number))
             std::cout << number << ' ';
