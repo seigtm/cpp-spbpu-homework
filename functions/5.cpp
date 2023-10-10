@@ -59,12 +59,12 @@ namespace v2 {
  * @note Cons:
  *       - Complexity: The code uses bitwise operations, which might be less intuitive for some programmers.
  */
-bool isBinaryPalindrome(unsigned number) {
+bool isBinaryPalindrome(unsigned int number) {
     // The reverse of the binary representation of the number.
-    unsigned number_reverse{};
+    unsigned int number_reverse{};
     // Process all bits of the input number.
-    unsigned k{ number };
-    while(k) {
+    unsigned int k{ number };
+    while(k != 0) {
         // Add the rightmost bit to `number_reverse`.
         number_reverse = (number_reverse << 1) | (k & 1);
         // Drop the last bit.
