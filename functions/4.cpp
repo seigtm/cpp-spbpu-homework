@@ -51,7 +51,7 @@ double inverseSqrtOfOnePlusX(double x, double abs_error, int n_max) {
     double result{ 1.0 };  // First term in the series.
     double term{ 1.0 };    // Current term in the series.
 
-    for(int i{ 1 }; i <= n_max; i += 2) {
+    for(int i{ 1 }; i <= n_max * 2; i += 2) {
         term *= -((x * i) / (i + 1));
         result += term;
 
@@ -84,15 +84,15 @@ int main() {
 
     std::cout << "x\tCustom\tStandard\n";
 
-    const int numSteps{ static_cast<int>((interval_end - interval_start) / step) };
-    for(int i{}; i < numSteps; ++i) {
+    const int num_steps{ static_cast<int>((interval_end - interval_start) / step) };
+    for(int i{}; i < num_steps; ++i) {
         try {
             const double x{ interval_start + i * step };
-            const double customResult{ setm::math::inverseSqrtOfOnePlusX(x, abs_error, n_max) };
-            const double stdResult{ 1.0 / std::sqrt(1 + x) };
+            const double custom_result{ setm::math::inverseSqrtOfOnePlusX(x, abs_error, n_max) };
+            const double std_result{ 1.0 / std::sqrt(1 + x) };
 
-            std::cout << std::fixed << std::setprecision(3)
-                      << x << '\t' << customResult << '\t' << stdResult << '\n';
+            std::cout << std::fixed << std::setprecision(7)
+                      << x << '\t' << custom_result << '\t' << std_result << '\n';
         } catch(const std::runtime_error &e) {
             std::cerr << e.what() << '\n';
         }
