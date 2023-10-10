@@ -41,23 +41,30 @@ double trapezoidalIntegration(const Function& function,
 /**
  * Function to compute an integral with a specified tolerance using the Runge rule.
  *
+ * This function numerically integrates the provided function over the specified
+ * interval [lower_limit, upper_limit] using an adaptive approach based on the
+ * Runge rule until the specified tolerance is met.
+ *
  * @tparam Function Type of the function to be integrated.
  * @param function The function to be integrated.
  * @param lower_limit The lower limit of the integral.
  * @param upper_limit The upper limit of the integral.
  * @param tolerance The desired tolerance for the integral calculation.
  * @return The value of the integral.
+ *
+ * @note The function uses the trapezoidal integration method for adaptive refinement.
  */
 template<class Function>
 double rungeRuleIntegration(const Function& function,
                             double lower_limit,
                             double upper_limit,
                             double tolerance) {
+    const double THETA{ 1.0 / 3.0 };
     unsigned num_steps{ 1 };
     double prev_integral{ trapezoidalIntegration(function, lower_limit, upper_limit, num_steps) };
     double integral{ trapezoidalIntegration(function, lower_limit, upper_limit, 2 * num_steps) };
 
-    while(std::abs(integral - prev_integral) > tolerance) {
+    while(THETA * std::abs(integral - prev_integral) > tolerance) {
         num_steps *= 2;
         prev_integral = integral;
         integral = trapezoidalIntegration(function, lower_limit, upper_limit, 2 * num_steps);
