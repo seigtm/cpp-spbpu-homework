@@ -31,8 +31,10 @@ double trapezoidalIntegration(const Function& function,
 
     const double step_size{ (upper_limit - lower_limit) / num_steps };
     double sum{ 0.5 * (function(lower_limit) + function(upper_limit)) };
+
     for(unsigned step{ 1 }; step < num_steps; ++step)
         sum += function(lower_limit + step * step_size);
+
     return step_size * sum;
 }
 
@@ -60,6 +62,7 @@ double rungeRuleIntegration(const Function& function,
         prev_integral = integral;
         integral = trapezoidalIntegration(function, lower_limit, upper_limit, 2 * num_steps);
     }
+
     return integral;
 }
 
@@ -83,6 +86,8 @@ inline std::string integralFormula(double lower_limit, double upper_limit, std::
 
 }  // namespace setm::math
 
+double SinX(double x) { return std::sin(x); }
+
 int main() {
     constexpr double lower_limit{ 0.0 };                       // The lower limit of the integral.
     constexpr double upper_limit{ std::numbers::pi };          // The upper limit of the integral.
@@ -92,4 +97,5 @@ int main() {
     std::cout << "Result of integration: "
               << setm::math::integralFormula(lower_limit, upper_limit, "sin")
               << setm::math::rungeRuleIntegration(sin_x, lower_limit, upper_limit, tolerance) << "\n";
+    //          << setm::math::rungeRuleIntegration(&SinX, lower_limit, upper_limit, tolerance) << "\n";
 }
