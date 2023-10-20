@@ -116,3 +116,11 @@ Both implementations are provided to demonstrate different approaches to solving
 - **Solution**: In the `arrays/1.cpp` file, you can find the implementation of the `isOrdered` function. The function checks if the given array is ordered in ascending order. It returns `true` if the elements of the array are in ascending order and `false` otherwise. The function handles cases of a null array pointer or a non-positive array size.
 
 - The `main` function is used to demonstrate how to use the `isOrdered` function. It takes the size and elements of the array as input from the user and prints whether the array is ordered in ascending order.
+
+### Assignment 14: Insertion Sort
+
+- **Task**: Write the `insertionSort` function that sorts an array using the insertion sort method.
+
+- **Solution**: In the `arrays/2.cpp` file, you can find the implementation of the `insertionSort` function, which sorts an array of integers in ascending order using the insertion sort algorithm. The function takes a pointer to the array and the number of elements as parameters. It iterates through the array, moving elements into their correct positions to achieve the sorted result.
+
+- The `main` function demonstrates how to use the `insertionSort` function. It prompts the user to enter the size and elements of the array, sorts the array using insertion sort, and then displays the sorted array.
