@@ -108,3 +108,11 @@ Feel free to explore the contents of each folder to gain insights into my learni
   - `setm::v2::isBinaryPalindrome`: This version directly operates on the binary representation of the integer, checking if it's a palindrome using bitwise operations. It's more memory and time efficient but may be less intuitive for some programmers.
 
 Both implementations are provided to demonstrate different approaches to solving the same problem. The code also includes test cases to verify the correctness of both implementations.
+
+### Assignment 13: Array Order Checker
+
+- **Task**: Write a function called `isOrdered` that takes two parameters - the address of a one-dimensional array of integers and the number of elements, and returns true if the elements of the array are ordered in ascending order, and false otherwise.
+
+- **Solution**: In the `arrays/1.cpp` file, you can find the implementation of the `isOrdered` function. The function checks if the given array is ordered in ascending order. It returns `true` if the elements of the array are in ascending order and `false` otherwise. The function handles cases of a null array pointer or a non-positive array size.
+
+- The `main` function is used to demonstrate how to use the `isOrdered` function. It takes the size and elements of the array as input from the user and prints whether the array is ordered in ascending order.

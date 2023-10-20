@@ -29,7 +29,7 @@ function(create_executables DIRECTORY)
 endfunction()
 
 # ---- Create executables for subdirectories ----
-set(SUBDIRECTORIES loops functions)
+set(SUBDIRECTORIES loops functions arrays)
 
 foreach(SUBDIR ${SUBDIRECTORIES})
   create_executables(${SUBDIR})
