@@ -28,8 +28,7 @@ bool isOrdered(const int* arr, int size) {
 int main() {
     int size{};
     std::cout << "Enter the size of the array: ";
-    std::cin >> size;
-    if(std::cin.fail() || size <= 0) {
+    if(!(std::cin >> size) || size <= 0) {
         std::cerr << "Error: The size of the array must be positive.\n";
         return -1;
     }
