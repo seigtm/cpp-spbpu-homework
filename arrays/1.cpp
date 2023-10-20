@@ -18,7 +18,7 @@ bool isOrdered(const int* arr, int size) {
     if(arr == nullptr || size <= 0)
         return false;
 
-    for(int i = 0; i < size - 1; ++i)
+    for(int i{}; i < size - 1; ++i)
         if(arr[i] > arr[i + 1])
             return false;
 
@@ -34,8 +34,8 @@ int main() {
     }
 
     auto arr{ std::make_unique<int[]>(size) };
-    std::cout << "Enter the elements of the array: ";
-    for(int i = 0; i < size; ++i) {
+    std::cout << "Enter " << size << " elements of the array: ";
+    for(int i{}; i < size; ++i) {
         if(!(std::cin >> arr[i])) {
             std::cerr << "Error: Input must be integers.\n";
             return -1;
