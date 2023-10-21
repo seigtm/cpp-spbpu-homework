@@ -124,3 +124,11 @@ Both implementations are provided to demonstrate different approaches to solving
 - **Solution**: In the `arrays/2.cpp` file, you can find the implementation of the `insertionSort` function, which sorts an array of integers in ascending order using the insertion sort algorithm. The function takes a pointer to the array and the number of elements as parameters. It iterates through the array, moving elements into their correct positions to achieve the sorted result.
 
 - The `main` function demonstrates how to use the `insertionSort` function. It prompts the user to enter the size and elements of the array, sorts the array using insertion sort, and then displays the sorted array.
+
+### Assignment 15: Closest Element Index in a Sorted Array
+
+- **Task**: Write a recursive function `findValue` that determines the index of the element in a sorted array that is closest to the input number. The function returns the index of the first occurrence of the closest element.
+
+- **Solution**: In the `arrays/3.cpp` file, you can find the implementation of the `findValue` function. This recursive function performs a binary search on a sorted array of integers, finding the index of the closest element to the input number. If there are multiple occurrences of the closest element, it returns the index of the first occurrence. The code also includes a set of tests in the `setm::test::Run` function to ensure the correctness of the implementation.
+
+- The `main` function demonstrates how to use the `findValue` function. It prompts the user to enter the **size** and **elements of a sorted array**, as well as the **target number**. It then calls the `findValue` function and displays the closest element along with its index in the array.
