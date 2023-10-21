@@ -132,3 +132,11 @@ Both implementations are provided to demonstrate different approaches to solving
 - **Solution**: In the `arrays/3.cpp` file, you can find the implementation of the `findValue` function. This recursive function performs a binary search on a sorted array of integers, finding the index of the closest element to the input number. If there are multiple occurrences of the closest element, it returns the index of the first occurrence. The code also includes a set of tests in the `setm::test::Run` function to ensure the correctness of the implementation.
 
 - The `main` function demonstrates how to use the `findValue` function. It prompts the user to enter the **size** and **elements of a sorted array**, as well as the **target number**. It then calls the `findValue` function and displays the closest element along with its index in the array.
+
+### Assignment 16: C++ Variable Name Validator
+
+- **Task**: Write a function `isVarName` that takes one parameter (**a character string**) and checks the correctness of a variable name in C++. The name may only contain Latin letters (both uppercase and lowercase), digits, and underscores, but it cannot start with a digit. The function should return true if the name is written correctly, and false otherwise. You can use library functions from the `<cctype>` header.
+
+- **Solution**: In the `arrays/4.cpp` file, you can find the implementation of the `isVarName` function. This function verifies whether a given string conforms to the rules for a valid C++ variable name. A valid variable name may only contain Latin letters (both uppercase and lowercase), digits, and underscores, but it cannot start with a digit. The code also includes a set of tests in the `setm::test::Run` function to ensure the correctness of the implementation.
+
+- The `main` function demonstrates how to use the `isVarName` function. It prompts the user to enter a variable name (handling spaces using `std::getline`) and then checks if the entered name is a valid C++ variable name. It provides feedback to the user regarding the name's validity.
