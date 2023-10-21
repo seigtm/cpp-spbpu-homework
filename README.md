@@ -140,3 +140,9 @@ Both implementations are provided to demonstrate different approaches to solving
 - **Solution**: In the `arrays/4.cpp` file, you can find the implementation of the `isVarName` function. This function verifies whether a given string conforms to the rules for a valid C++ variable name. A valid variable name may only contain Latin letters (both uppercase and lowercase), digits, and underscores, but it cannot start with a digit. The code also includes a set of tests in the `setm::test::Run` function to ensure the correctness of the implementation.
 
 - The `main` function demonstrates how to use the `isVarName` function. It prompts the user to enter a variable name (handling spaces using `std::getline`) and then checks if the entered name is a valid C++ variable name. It provides feedback to the user regarding the name's validity.
+
+### Assignment 17: Character Removal from a C-Style String
+
+- **Task**: Write a function called `removeChar` that forms a new string by removing a specified character from the original one. The pointer to the new string should be passed as a parameter.
+
+- **Solution**: In the `arrays/5.cpp` file, you can find the implementation of the `removeChar` function. This function removes all occurrences of a specified character from the input C-style string and stores the result in the output C-style string. The memory for the output string should be allocated by the caller and must have enough space to hold the modified string. The code also provides an example in the `main` function, demonstrating how to use the `removeChar` function to remove a character from a C-style string.
