@@ -42,7 +42,7 @@ int main() {
     const char charToRemove{ 'o' };
 
     auto newSize{ std::strlen(inputString) + 1 };  // +1 for '\0'.
-    auto outputString(std::make_unique<char[]>(newSize));
+    auto outputString{ std::make_unique<char[]>(newSize) };
 
     setm::removeChar(inputString, charToRemove, outputString.get());
 
