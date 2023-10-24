@@ -23,9 +23,9 @@ namespace setm {
  * Ensure proper memory management, including releasing memory for the output string when no longer needed.
  */
 void removeChar(const char* inputString, char charToRemove, char* outputString) {
-    int outputIndex{ 0 };
+    int outputIndex{};
 
-    for(int i = 0; inputString[i] != '\0'; ++i) {
+    for(int i{}; inputString[i] != '\0'; ++i) {
         if(inputString[i] != charToRemove) {
             outputString[outputIndex] = inputString[i];
             outputIndex++;
