@@ -146,3 +146,16 @@ Both implementations are provided to demonstrate different approaches to solving
 - **Task**: Write a function called `removeChar` that forms a new string by removing a specified character from the original one. The pointer to the new string should be passed as a parameter.
 
 - **Solution**: In the `arrays/5.cpp` file, you can find the implementation of the `removeChar` function. This function removes all occurrences of a specified character from the input C-style string and stores the result in the output C-style string. The memory for the output string should be allocated by the caller and must have enough space to hold the modified string. The code also provides an example in the `main` function, demonstrating how to use the `removeChar` function to remove a character from a C-style string.
+
+### (Special) Assignment 18: Maximum Count of Consecutive Identical Elements
+
+- **Task**: In an array of integers, determine the maximum count of consecutive identical elements. For built-in arrays, where the number and values of elements are specified during initialization, create several arrays to test different cases. For an array allocated in dynamic memory, the number of elements should be entered from the keyboard, and the values of the elements should be generated randomly.
+
+- **Solution**: In the `arrays/special.cpp` file, you can find the implementation of a function, `findMaxConsecutive`, that calculates the maximum count of consecutive identical elements in an array of integers. The code includes two variants:
+
+  - **Variant 1**: Using built-in arrays with predefined values to test different cases.
+  - **Variant 2**: Using a dynamically allocated array with the number of elements entered from the keyboard and filled with random values.
+
+The `findMaxConsecutive` function iterates through the array, keeping track of the maximum count of consecutive identical elements and the current count of consecutive identical elements. It returns the maximum count.
+
+The code demonstrates the use of this function with example arrays in both variants and displays the maximum count of consecutive identical elements.
