@@ -59,7 +59,7 @@ char* repetitiveCharsInStr(char* destination, const char* source) {
         source++;
     }
 
-    char* dest = destination;
+    char* dest{ destination };
     for(const auto& [key, value] : chars) {
         if(value > 1) {
             *dest++ = key;
