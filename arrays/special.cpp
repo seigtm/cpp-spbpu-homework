@@ -4,11 +4,10 @@
 // For an array allocated in dynamic memory, the number of elements should
 //  be entered from the keyboard, and the values of the elements should be generated randomly.
 
-#include <cstdlib>
-#include <ctime>
-#include <iostream>
-#include <memory>
-#include <random>
+#include <cstdlib>   // EXIT_FAILURE.
+#include <iostream>  // Input/Output operations.
+#include <memory>    // Smart pointers.
+#include <random>    // Random number generation.
 
 /**
  * @brief Function to find the maximum count of consecutive equal elements in an array.
@@ -51,11 +50,9 @@ int main() {
     // Variant 2: Using a dynamically allocated array:
     int size3;
     std::cout << "Enter the size of the array: ";
-    std::cin >> size3;
-
-    if(size3 <= 0) {
-        std::cerr << "The size of the array must be a positive number.\n";
-        return 1;
+    if(!(std::cin >> size3) || size3 <= 0) {
+        std::cerr << "Invalid input. The size of the array must be a positive integer.\n";
+        std::exit(EXIT_FAILURE);
     }
 
     const auto arr3{ std::make_unique<int[]>(size3) };

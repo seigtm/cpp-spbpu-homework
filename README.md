@@ -159,3 +159,15 @@ Both implementations are provided to demonstrate different approaches to solving
 The `findMaxConsecutive` function iterates through the array, keeping track of the maximum count of consecutive identical elements and the current count of consecutive identical elements. It returns the maximum count.
 
 The code demonstrates the use of this function with example arrays in both variants and displays the maximum count of consecutive identical elements.
+
+### (Special) Assignment 19: Repetitive Characters in a String
+
+- **Task**: Create a new string from characters that are repeated more than once in the original string. These repetitive characters should appear only once in the new string.
+
+- **Solution**: In the `arrays/special2.cpp` file, you can find the implementation of a function, `repetitiveCharsInStr`, which takes a string as input and returns a new string containing characters that appear more than once in the input string. The code includes two implementations:
+
+  - **C++ String Version**: It uses **C++ std::string** to analyze the input string and generate the result.
+
+  - **C-style Character Array Version**: This version takes a **C-style character array** as input and modifies another character array to contain characters that appear more than once in the input string (they should appear only once in the new string).
+
+The code reads input data from a file specified as a command-line argument. For each entry in the file, it allocates memory for the source and destination strings, processes the input string to find repetitive characters, and displays the original and repetitive strings.
