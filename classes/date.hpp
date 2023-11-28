@@ -7,19 +7,51 @@
 
 namespace setm {
 
+/**
+ * @brief Represents a date with year, month, and day components.
+ *
+ * The Date class provides functionality for working with dates, including
+ * arithmetic and comparison operations.
+ */
 class Date {
 public:
     // ========= Constructors: ========= //
+    /**
+     * @brief Default constructor for Date.
+     *
+     * Constructs a default Date representing an unspecified date.
+     */
     constexpr explicit Date() noexcept = default;
 
+    /**
+     * @brief Constructor for Date with specified year, month, and day.
+     *
+     * @param year The year of the date.
+     * @param month The month of the date.
+     * @param day The day of the date.
+     */
     constexpr Date(const std::chrono::year& year,
                    const std::chrono::month& month,
                    const std::chrono::day& day) noexcept;
 
+    /**
+     * @brief Constructor for Date with specified year, month, and day.
+     *
+     * @param year The year of the date.
+     * @param month The month of the date.
+     * @param day The day of the date.
+     */
     constexpr Date(unsigned year, unsigned month, unsigned day) noexcept;
 
 
     // ========= Member functions: ========= //
+    /**
+     * @brief Checks if the date is valid.
+     *
+     * A date is considered valid if the year, month, and day components are valid.
+     *
+     * @return True if the date is valid, false otherwise.
+     */
     constexpr bool isValid() const noexcept;
 
 
@@ -71,22 +103,50 @@ public:
 
 
     // ========= I/O operators: ========= //
+    /**
+     * @brief Outputs the date to the stream.
+     *
+     * If the date is invalid, it outputs "Invalid date: ".
+     *
+     * @param os The output stream.
+     * @param date The date to output.
+     * @return The modified output stream.
+     */
     friend std::ostream& operator<<(std::ostream& os, const Date& date);
+
+    /**
+     * @brief Inputs the date from the stream.
+     *
+     * The expected input format is "YYYY/MM/DD".
+     * If the input is not in the expected format, it sets the failbit.
+     *
+     * @param is The input stream.
+     * @param date The date to input.
+     * @return The modified input stream.
+     */
     friend std::istream& operator>>(std::istream& is, Date& date);
 
 
     // ========= Static functions: ========= //
-    template<class DMY>
+    /**
+     * @brief Computes the difference between two dates.
+     *
+     * @tparam YMD The type of the difference (years, months, or days).
+     * @param first The first date.
+     * @param second The second date.
+     * @return The duration between the two dates.
+     */
+    template<class YMD>
     static constexpr auto Difference(const Date& first, const Date& second) noexcept {
-        static_assert(std::is_same_v<DMY, std::chrono::years> || std::is_same_v<DMY, std::chrono::months> || std::is_same_v<DMY, std::chrono::days>,
+        static_assert(std::is_same_v<YMD, std::chrono::years> || std::is_same_v<YMD, std::chrono::months> || std::is_same_v<YMD, std::chrono::days>,
                       "Invalid type for Difference function");
 
-        if constexpr(std::is_same_v<DMY, std::chrono::years>) {
-            return std::chrono::duration_cast<DMY>(first.getYear() - second.getYear());
-        } else if constexpr(std::is_same_v<DMY, std::chrono::months>) {
-            return std::chrono::duration_cast<DMY>(first.getMonth() - second.getMonth());
-        } else if constexpr(std::is_same_v<DMY, std::chrono::days>) {
-            return std::chrono::duration_cast<DMY>(first.getDay() - second.getDay());
+        if constexpr(std::is_same_v<YMD, std::chrono::years>) {
+            return std::chrono::duration_cast<YMD>(first.getYear() - second.getYear());
+        } else if constexpr(std::is_same_v<YMD, std::chrono::months>) {
+            return std::chrono::duration_cast<YMD>(first.getMonth() - second.getMonth());
+        } else if constexpr(std::is_same_v<YMD, std::chrono::days>) {
+            return std::chrono::duration_cast<YMD>(first.getDay() - second.getDay());
         }
     }
 

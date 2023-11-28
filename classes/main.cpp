@@ -28,7 +28,7 @@ int main() {
         setm::Date dateFromStdin;
         std::cout << "[1]: Enter a date (YYYY/MM/DD): ";
         std::cin >> dateFromStdin;
-        std::cout << "[1]: " << dateFromStdin << '\n';
+        std::cout << '\t' << dateFromStdin << '\n';
     }
 
     // 2. Date constructed from (unsigned) ints.
