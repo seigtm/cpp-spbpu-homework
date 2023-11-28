@@ -30,7 +30,6 @@ public:
                    const std::chrono::month& month = {},
                    const std::chrono::day& day = {}) noexcept;
 
-
     /**
      * @brief Constructor for Date with specified year, month, and day.
      *
