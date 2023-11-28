@@ -39,14 +39,12 @@ public:
 
 
     // ========= Comparison operators: ========= //
-    friend constexpr std::strong_ordering operator<=>(const Date& first, const Date& second) noexcept = default;
+    constexpr std::strong_ordering operator<=>(const Date& other) const noexcept = default;
 
 
     // ========= Arithmetic operators: ========= //
-    constexpr Date& operator+(const Date& date) noexcept;
-    constexpr Date& operator-(const Date& date) noexcept;
-    constexpr Date& operator+(const Date& date) const noexcept;
-    constexpr Date& operator-(const Date& date) const noexcept;
+    constexpr Date operator+(const Date& date) const noexcept;
+    constexpr Date operator-(const Date& date) const noexcept;
 
     constexpr Date operator+(const std::chrono::years& years) const noexcept;
     constexpr Date operator-(const std::chrono::years& years) const noexcept;
@@ -75,6 +73,7 @@ public:
     // ========= I/O operators: ========= //
     friend std::ostream& operator<<(std::ostream& os, const Date& date);
     friend std::istream& operator>>(std::istream& is, Date& date);
+
 
     // ========= Static functions: ========= //
     template<class DMY>
@@ -164,18 +163,20 @@ constexpr void Date::setDay(unsigned day) noexcept {
 
 
 // ========= Arithmetic operators: ========= //
-constexpr Date& Date::operator+(const Date& date) noexcept {
-    day_ += std::chrono::days(static_cast<unsigned>(date.getDay()));
-    month_ += std::chrono::months(static_cast<unsigned>(date.getMonth()));
-    year_ += std::chrono::years(static_cast<int>(date.getYear()));
-    return *this;
+constexpr Date Date::operator+(const Date& other) const noexcept {
+    return {
+        year_ + std::chrono::years(static_cast<int>(other.getYear())),
+        month_ + std::chrono::months(static_cast<unsigned>(other.getMonth())),
+        day_ + std::chrono::days(static_cast<unsigned>(other.getDay()))
+    };
 }
 
-constexpr Date& Date::operator-(const Date& date) noexcept {
-    day_ -= std::chrono::days(static_cast<unsigned>(date.getDay()));
-    month_ -= std::chrono::months(static_cast<unsigned>(date.getMonth()));
-    year_ -= std::chrono::years(static_cast<int>(date.getYear()));
-    return *this;
+constexpr Date Date::operator-(const Date& other) const noexcept {
+    return {
+        year_ - std::chrono::years(static_cast<int>(other.getYear())),
+        month_ - std::chrono::months(static_cast<unsigned>(other.getMonth())),
+        day_ - std::chrono::days(static_cast<unsigned>(other.getDay()))
+    };
 }
 
 constexpr Date Date::operator+(const std::chrono::days& days) const noexcept {

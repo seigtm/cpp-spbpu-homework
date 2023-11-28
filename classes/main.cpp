@@ -56,8 +56,9 @@ int main() {
     // 5. Test arithmetic operators.
     {
         constexpr setm::Date date{ 2002, 5, 4 };
-        constexpr auto newDate = date + std::chrono::days(10);
-        std::cout << "[5]: " << newDate << '\n';
+        constexpr auto newDate{ date + std::chrono::days(10) };
+        std::cout << "[5]: " << date << " + 10 days = " << newDate << '\n'
+                  << "\tdate + new date = " << date + newDate << '\n';
     }
 
     // 6. Test comparison operators.
