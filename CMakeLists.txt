@@ -34,3 +34,8 @@ set(SUBDIRECTORIES loops functions arrays)
 foreach(SUBDIR ${SUBDIRECTORIES})
   create_executables(${SUBDIR})
 endforeach()
+
+# ---- Special case for 'classes' directory ----
+add_executable(classes classes/main.cpp)
+target_include_directories(classes PRIVATE classes)
+set_target_properties(classes PROPERTIES CXX_STANDARD 20)
