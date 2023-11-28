@@ -17,22 +17,19 @@ class Date {
 public:
     // ========= Constructors: ========= //
     /**
-     * @brief Default constructor for Date.
-     *
-     * Constructs a default Date representing an unspecified date.
-     */
-    constexpr explicit Date() noexcept = default;
-
-    /**
      * @brief Constructor for Date with specified year, month, and day.
      *
-     * @param year The year of the date.
-     * @param month The month of the date.
-     * @param day The day of the date.
+     * Constructs a Date object with the specified year, month, and day components.
+     * If no arguments are provided, the default values are used, resulting in an unspecified date.
+     *
+     * @param year The year of the date. Defaults to the default-constructed std::chrono::year.
+     * @param month The month of the date. Defaults to the default-constructed std::chrono::month.
+     * @param day The day of the date. Defaults to the default-constructed std::chrono::day.
      */
-    constexpr Date(const std::chrono::year& year,
-                   const std::chrono::month& month,
-                   const std::chrono::day& day) noexcept;
+    constexpr Date(const std::chrono::year& year = {},
+                   const std::chrono::month& month = {},
+                   const std::chrono::day& day = {}) noexcept;
+
 
     /**
      * @brief Constructor for Date with specified year, month, and day.
