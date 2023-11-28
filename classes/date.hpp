@@ -174,7 +174,24 @@ constexpr Date::Date(unsigned year, unsigned month, unsigned day) noexcept
 
 // ========= Member functions: ========= //
 constexpr bool Date::isValid() const noexcept {
-    return year_.ok() && month_.ok() && day_.ok();
+    // First check using the std::chrono member functions.
+    if(!year_.ok() || !month_.ok() || !day_.ok())
+        return false;
+
+    // Now we need to check if the date is valid for the given month.
+    unsigned maxDays{ 0 };
+    if(month_ == std::chrono::February) {
+        maxDays = year_.is_leap() ? 29 : 28;
+    } else if(month_ == std::chrono::April ||
+              month_ == std::chrono::June ||
+              month_ == std::chrono::September ||
+              month_ == std::chrono::November) {
+        maxDays = 30;
+    } else {
+        maxDays = 31;
+    }
+
+    return static_cast<unsigned>(day_) <= maxDays;
 }
 
 

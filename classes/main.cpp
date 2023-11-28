@@ -64,9 +64,19 @@ int main() {
     {
         setm::Date date{ 2002, 5, 14 };
         std::cout << "[7 valid]: " << date.isValid() << "\n\t" << date << '\n';
+
         date.setDay(32);
         date.setMonth(13);
-        std::cout << "[7 invalid]: " << date.isValid() << "\n\t" << date << '\n';
+        std::cout << "[7 invalid number of days and months]: " << date.isValid() << "\n\t" << date << '\n';
+
+        date.setDay(30);
+        date.setMonth(2);
+        std::cout << "[7 invalid number of days in February]: " << date.isValid() << "\n\t" << date << '\n';
+
+        date.setDay(29);
+        date.setMonth(2);
+        date.setYear(2004);
+        std::cout << "[7 valid because it's leap year]: " << date.isValid() << "\n\t" << date << '\n';
     }
 
     // 8. Test overloaded operators.

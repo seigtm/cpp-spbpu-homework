@@ -171,3 +171,54 @@ The code demonstrates the use of this function with example arrays in both varia
   - **C-style Character Array Version**: This version takes a **C-style character array** as input and modifies another character array to contain characters that appear more than once in the input string (they should appear only once in the new string).
 
 The code reads input data from a file specified as a command-line argument. For each entry in the file, it allocates memory for the source and destination strings, processes the input string to find repetitive characters, and displays the original and repetitive strings.
+
+### (Special) Assignment 20: Date Class Implementation
+
+- **Task**: Develop a C++ class for storing and manipulating dates. Implement methods to retrieve date components (day, month, year), compare two dates, calculate the difference in days between two dates, and modify the date by a specified number of days.
+- **Solution**: In the `classes/date.hpp` file you can find the implementation of the **Date** class. The class includes methods to retrieve and set date components, arithmetic operators for date manipulation, and functions to calculate differences between dates.
+
+#### Constructors
+
+- **Constructor with std::chrono Components:** Constructs a Date object with the specified year, month, and day components, utilizing `std::chrono` types. If no arguments are provided, the default values are used, resulting in an unspecified date.
+- **Constructor with Unsigned Components:** Constructs a Date object with the specified year, month, and day components, accepting unsigned integers.
+
+#### Member Functions
+
+- **isValid:** Checks if the date is valid, considering factors such as leap years and valid month and day values.
+
+#### Getters
+
+- **getYear:** Retrieves the year component of the date.
+- **getMonth:** Retrieves the month component of the date.
+- **getDay:** Retrieves the day component of the date.
+
+#### Setters
+
+- **setYear:** Sets the year component of the date.
+- **setMonth:** Sets the month component of the date.
+- **setDay:** Sets the day component of the date.
+- **setYear, setMonth, setDay (Unsigned):** Overloaded setters accepting unsigned integers.
+
+#### Comparison Operators
+
+- **operator<=>:** Provides a three-way comparison operator for comparing two dates.
+
+#### Arithmetic Operators
+
+- **Arithmetic Operations with Dates:** Supports addition and subtraction of two dates.
+- **Arithmetic Operations with std::chrono Types:** Supports addition and subtraction of years, months, and days to/from a date.
+
+#### Friend Operators
+
+- **Friend Operations with std::chrono Types:** Enables arithmetic operations with years, months, and days as friends of the class.
+
+#### I/O Operators
+
+- **operator<<:** Outputs the date to the stream in "YYYY/MM/DD" format. Outputs "Invalid date" if the date is invalid.
+- **operator>>:** Inputs the date from the stream, expecting the "YYYY/MM/DD" format.
+
+#### Static Functions
+
+- **Difference:** Computes the difference between two dates in years, months, or days.
+
+The **main** function in `main.cpp` demonstrates the usage of the **Date** class, showcasing the implemented methods and operators.
