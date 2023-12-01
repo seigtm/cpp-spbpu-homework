@@ -28,3 +28,6 @@ dist/
 
 # Operating system/editor backup files:
 *~
+
+# Old versions of assignments:
+old/

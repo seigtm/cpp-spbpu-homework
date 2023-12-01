@@ -175,50 +175,70 @@ The code reads input data from a file specified as a command-line argument. For 
 ### (Special) Assignment 20: Date Class Implementation
 
 - **Task**: Develop a C++ class for storing and manipulating dates. Implement methods to retrieve date components (day, month, year), compare two dates, calculate the difference in days between two dates, and modify the date by a specified number of days.
-- **Solution**: In the `classes/date.hpp` file you can find the implementation of the **Date** class. The class includes methods to retrieve and set date components, arithmetic operators for date manipulation, and functions to calculate differences between dates.
+- **Solution**: In the `date/date.hpp` file you can find the implementation of the **Date** class. The class includes methods to retrieve date components, arithmetic operators for date manipulation, and functions to calculate differences between dates.
 
 #### Constructors
 
-- **Constructor with std::chrono Components:** Constructs a Date object with the specified year, month, and day components, utilizing `std::chrono` types. If no arguments are provided, the default values are used, resulting in an unspecified date.
-- **Constructor with Unsigned Components:** Constructs a Date object with the specified year, month, and day components, accepting unsigned integers.
+- **Constructor:** Constructs a Date object with the specified year, month, and day.
+  - *Parameters:*
+    - `year` - The year of the date.
+    - `month` - The month of the date.
+    - `day` - The day of the date.
+  - *Throws:* `std::invalid_argument` if the month or day is out of the valid range.
 
-#### Member Functions
+#### Methods
 
-- **isValid:** Checks if the date is valid, considering factors such as leap years and valid month and day values.
+- **AddDays:** Modifies the date by adding a specified number of days.
+  - *Parameters:*
+    - `numDays` - The number of days to add to the date.
+  - *Note:* This function ensures that the date is updated correctly after adding days.
 
 #### Getters
 
-- **getYear:** Retrieves the year component of the date.
-- **getMonth:** Retrieves the month component of the date.
-- **getDay:** Retrieves the day component of the date.
-
-#### Setters
-
-- **setYear:** Sets the year component of the date.
-- **setMonth:** Sets the month component of the date.
-- **setDay:** Sets the day component of the date.
-- **setYear, setMonth, setDay (Unsigned):** Overloaded setters accepting unsigned integers.
+- **Year:** Retrieves the year component of the date.
+- **Month:** Retrieves the month component of the date.
+- **Day:** Retrieves the day component of the date.
 
 #### Comparison Operators
 
-- **operator<=>:** Provides a three-way comparison operator for comparing two dates.
+- **operator<=>:** Compares two Date objects using the spaceship operator.
+  - *Parameters:*
+    - `other` - The Date object to compare against.
+  - *Returns:* Strong ordering result (<, ==, or >).
 
-#### Arithmetic Operators
+#### I/O Friend Operators
 
-- **Arithmetic Operations with Dates:** Supports addition and subtraction of two dates.
-- **Arithmetic Operations with std::chrono Types:** Supports addition and subtraction of years, months, and days to/from a date.
-
-#### Friend Operators
-
-- **Friend Operations with std::chrono Types:** Enables arithmetic operations with years, months, and days as friends of the class.
-
-#### I/O Operators
-
-- **operator<<:** Outputs the date to the stream in "YYYY/MM/DD" format. Outputs "Invalid date" if the date is invalid.
-- **operator>>:** Inputs the date from the stream, expecting the "YYYY/MM/DD" format.
+- **operator<<:** Outputs the date to the stream in the format "YYYY/MM/DD".
+  - *Parameters:*
+    - `os` - The output stream.
+    - `date` - The Date object to output.
+  - *Returns:* The modified output stream.
 
 #### Static Functions
 
-- **Difference:** Computes the difference between two dates in years, months, or days.
+- **Difference:** Calculates the difference in days between two Date objects.
+  - *Parameters:* 
+    - `first` - The first Date object.
+    - `second` - The second Date object.
+  - *Returns:* The difference in days between the two dates.
+  - *Note:* The difference is calculated using the total number of days from year 0. This means that the difference is always positive.
 
-The **main** function in `main.cpp` demonstrates the usage of the **Date** class, showcasing the implemented methods and operators.
+- **CountLeapYears:** Counts the number of leap years up to a given date.
+  - *Parameters:* `date` - The date up to which to count leap years.
+  - *Returns:* The count of leap years.
+
+- **DaysInMonth:** Retrieves the number of days in a specific month of a given year.
+  - *Parameters:*
+    - `year` - The year of the date.
+    - `month` - The month of the date.
+  - *Returns:* The number of days in the specified month.
+
+- **IsLeapYear:** Checks if a given year is a leap year.
+  - *Parameters:* `year` - The year to check.
+  - *Returns:* True if the year is a leap year, false otherwise.
+
+- **DayOfYear:** Calculates the day of the year for a given date.
+  - *Parameters:* `date` - The Date object for which to calculate the day of the year.
+  - *Returns:* The day of the year.
+
+The `date/tests.cpp` file includes tests for the **Date** class, showcasing the implemented methods and operators.

@@ -4,10 +4,14 @@ cmake_minimum_required(VERSION 3.12)
 project(
   cpphw
   VERSION 1.0
-  LANGUAGES CXX)
+  LANGUAGES C CXX)
 
 # ---- Env var for SonarLint ----
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# ---- C++ standard ----
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # ---- Include guards ----
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
@@ -35,7 +39,25 @@ foreach(SUBDIR ${SUBDIRECTORIES})
   create_executables(${SUBDIR})
 endforeach()
 
-# ---- Special case for 'classes' directory ----
-add_executable(classes classes/main.cpp)
-target_include_directories(classes PRIVATE classes)
-set_target_properties(classes PROPERTIES CXX_STANDARD 20)
+# ---- Add googletest ----
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt
+    ON
+    CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+# ---- Enable testing ----
+enable_testing()
+
+# ---- Special case for 'date' directory ----
+add_executable(date date/date.cpp date/tests.cpp)
+target_include_directories(date PRIVATE date)
+target_link_libraries(date PRIVATE GTest::gtest_main)
+set_target_properties(date PROPERTIES CXX_STANDARD 20)
+include(GoogleTest)
+gtest_discover_tests(date)
