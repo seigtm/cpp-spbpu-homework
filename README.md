@@ -217,7 +217,7 @@ The code reads input data from a file specified as a command-line argument. For 
 #### Static Functions
 
 - **Difference:** Calculates the difference in days between two Date objects.
-  - *Parameters:* 
+  - *Parameters:*
     - `first` - The first Date object.
     - `second` - The second Date object.
   - *Returns:* The difference in days between the two dates.
