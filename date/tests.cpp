@@ -34,7 +34,9 @@ INSTANTIATE_TEST_SUITE_P(Dates, DateClassTest,
                              // Test case 5: Difference between two dates spanning multiple years.
                              std::make_tuple(Date{ 2001, 1, 1 }, Date{ 2005, 12, 31 }, 1825),
                              // Test case 6: Difference between two dates with negative years.
-                             std::make_tuple(Date{ -100, 1, 1 }, Date{ -101, 1, 2 }, 364)));
+                             std::make_tuple(Date{ -100, 1, 1 }, Date{ -101, 1, 2 }, 364),
+                             // Test case 7: Difference between dates with positive and negative years.
+                             std::make_tuple(Date{ 0, 1, 1 }, Date{ -1, 1, 1 }, 365)));
 
 // Test the DaysInMonth function for both leap and non-leap years.
 TEST(DateClass, DaysInMonth) {
