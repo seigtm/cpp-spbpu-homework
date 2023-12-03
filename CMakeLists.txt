@@ -70,3 +70,11 @@ target_link_libraries(shapes PRIVATE GTest::gtest_main)
 set_target_properties(shapes PROPERTIES CXX_STANDARD 20)
 include(GoogleTest)
 gtest_discover_tests(shapes)
+
+# ---- Special case for 'matrix' directory ----
+add_executable(matrix matrix/tests.cpp)
+target_include_directories(matrix PRIVATE matrix)
+target_link_libraries(matrix PRIVATE GTest::gtest_main)
+set_target_properties(matrix PROPERTIES CXX_STANDARD 20)
+include(GoogleTest)
+gtest_discover_tests(matrix)

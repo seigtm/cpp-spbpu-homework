@@ -258,3 +258,34 @@ The `date/tests.cpp` file includes tests for the **Date** class, showcasing the 
   - Exception handling is incorporated to handle invalid arguments.
 
 - **Testing**: The provided Google Test cases in `tests.cpp` validate the correctness of the `Rectangle` and `Circle` classes, including their constructors, methods, and sorting based on areas.
+
+### (Special) Assignment 22: Dynamic Matrix Implementation
+
+- **Task**: Implement a C++ class for handling matrices. The matrix class should support common operations like construction, copying, moving, addition, multiplication, transpose, and output. The class should be templated to work with different types.
+
+- **Solution**: The matrix class is implemented in the `matrix.hpp` file. It includes the following features:
+
+  - **Constructors:**
+    - Default constructor to create an empty matrix.
+    - Constructor to create a matrix with specified dimensions and optional initialization.
+    - Constructor to create a matrix from a 1D array with specified dimensions.
+
+  - **Copy and Move Operations:**
+    - Copy constructor and copy assignment to create a copy of a matrix.
+    - Move constructor and move assignment for efficient transfer of matrix ownership.
+
+  - **Basic Matrix Operations:**
+    - Addition and multiplication of matrices.
+    - Transposition of a matrix.
+
+  - **Element Access and Modification:**
+    - Getter and setter methods to access and modify individual elements of the matrix.
+
+  - **Output Operator:**
+    - Overloaded `<<` operator to facilitate easy output of the matrix.
+
+  - **Validation and Exception Handling:**
+    - Checks for invalid dimensions and out-of-bounds access.
+    - Appropriate use of exception handling for error scenarios.
+
+- **Testing**: The provided Google Test cases in the `tests.cpp` file validate the correctness of the matrix class, including various constructors, basic operations, and exception handling.
