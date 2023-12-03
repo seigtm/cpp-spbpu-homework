@@ -61,3 +61,12 @@ target_link_libraries(date PRIVATE GTest::gtest_main)
 set_target_properties(date PROPERTIES CXX_STANDARD 20)
 include(GoogleTest)
 gtest_discover_tests(date)
+
+# ---- Special case for 'shapes' directory ----
+file(GLOB_RECURSE SHAPES_SRC_FILES "shapes/*.cpp")
+add_executable(shapes ${SHAPES_SRC_FILES})
+target_include_directories(shapes PRIVATE shapes)
+target_link_libraries(shapes PRIVATE GTest::gtest_main)
+set_target_properties(shapes PROPERTIES CXX_STANDARD 20)
+include(GoogleTest)
+gtest_discover_tests(shapes)

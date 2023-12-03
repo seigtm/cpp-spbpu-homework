@@ -242,3 +242,19 @@ The code reads input data from a file specified as a command-line argument. For 
   - *Returns:* The day of the year.
 
 The `date/tests.cpp` file includes tests for the **Date** class, showcasing the implemented methods and operators.
+
+### (Special) Assignment 21: Geometric Shapes Implementation
+
+- **Task**: Implement a set of classes and functions for geometric shapes, sorting, and manipulation. This assignment involves creating structures for points on a plane, abstract class `Shape`, concrete classes for specific shapes (`Rectangle` and `Circle`), and a sorting of an array of shape pointers.
+
+- **Solution**: The solution involves several components:
+  - **`point.hpp`**: Defines a `Point` structure representing a point in a two-dimensional space.
+  - **`shape.hpp` and `shape.cpp`**: Defines an abstract class `Shape` representing a geometric shape with methods for calculating area, scaling, getting the center coordinates, and obtaining the shape's name. The class also overloads the `<=>` operator for comparing shapes based on their areas.
+  - **`rectangle.hpp` and `rectangle.cpp`**: Implements the `Rectangle` class, derived from `Shape`, representing a rectangle defined by its bottom-left and top-right coordinates.
+  - **`circle.hpp` and `circle.cpp`**: Implements the `Circle` class, derived from `Shape`, representing a circle defined by its center and radius.
+
+- **Notes**:
+  - Each shape class has a constructor that accepts specific parameters, and the classes control their data to avoid invalid states.
+  - Exception handling is incorporated to handle invalid arguments.
+
+- **Testing**: The provided Google Test cases in `tests.cpp` validate the correctness of the `Rectangle` and `Circle` classes, including their constructors, methods, and sorting based on areas.
