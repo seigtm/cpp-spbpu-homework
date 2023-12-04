@@ -35,7 +35,7 @@ void Rectangle::scale(double factor) {
 }
 
 Point Rectangle::getCenter() const {
-    return { (bottomLeft_.x + topRight_.x) / 2, (bottomLeft_.y + topRight_.y) / 2 };
+    return { (bottomLeft_.x + topRight_.x) * 0.5, (bottomLeft_.y + topRight_.y) * 0.5 };
 }
 
 std::string_view Rectangle::getName() const {
