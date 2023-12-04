@@ -300,22 +300,22 @@ std::size_t Matrix<T>::getCols() const {
 
 template<typename T>
 T Matrix<T>::getElement(std::size_t row, std::size_t col) const {
-    if(row < rows && col < cols) {
-        return data[row * cols + col];
-    } else {
+    if(row >= rows || col >= cols) {
         // Handle out-of-bounds error (throw an exception).
         throw std::out_of_range("Matrix indices out of bounds");
     }
+
+    return data[row * cols + col];
 }
 
 template<typename T>
 void Matrix<T>::setElement(std::size_t row, std::size_t col, T value) {
-    if(row < rows && col < cols) {
-        data[row * cols + col] = value;
-    } else {
+    if(row >= rows || col >= cols) {
         // Handle out-of-bounds error (throw an exception).
         throw std::out_of_range("Matrix indices out of bounds");
     }
+
+    data[row * cols + col] = value;
 }
 
 template<typename T>
