@@ -1,4 +1,4 @@
-#include <algorithm>    // std::sort.
+#include <algorithm>    // std::ranges::sort.
 #include <cstddef>      // std::size_t.
 #include <numbers>      // std::numbers::pi_v.
 #include <string_view>  // std::string_view.
@@ -82,8 +82,11 @@ TEST(SortingTest, CompareShapes) {
     };
 
     // Sort shapes by area in ascending order.
-    std::sort(shapes.begin(), shapes.end(),
-              [](const setm::Shape* a, const setm::Shape* b) { return *a < *b; });
+    static const auto less_with_dereferencing{ [](auto lhs, auto rhs) {
+        return *lhs < *rhs;
+    } };
+    std::ranges::sort(shapes, less_with_dereferencing);
+
 
     // Check sorting order.
     for(std::size_t i{}; i < shapes.size(); ++i) {
