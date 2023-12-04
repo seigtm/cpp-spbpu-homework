@@ -22,7 +22,12 @@ double Rectangle::getArea() const {
 }
 
 void Rectangle::scale(double factor) {
+    if(factor == 0.0) {
+        throw std::invalid_argument("Invalid scale factor. Cannot scale by a factor of 0.");
+    }
+
     const Point center{ getCenter() };
+
     bottomLeft_.x = center.x + (bottomLeft_.x - center.x) * factor;
     bottomLeft_.y = center.y + (bottomLeft_.y - center.y) * factor;
     topRight_.x = center.x + (topRight_.x - center.x) * factor;

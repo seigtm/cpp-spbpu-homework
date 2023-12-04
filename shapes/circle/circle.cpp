@@ -18,6 +18,10 @@ double Circle::getArea() const {
 }
 
 void Circle::scale(double factor) {
+    if(factor == 0.0) {
+        throw std::invalid_argument("Invalid scale factor. Cannot scale by a factor of 0.");
+    }
+
     radius_ *= factor;
 }
 

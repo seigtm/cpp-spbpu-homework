@@ -33,6 +33,9 @@ TEST(RectangleTest, ConstructorAndMethods) {
     EXPECT_DOUBLE_EQ(rectangle.getCenter().x, 1.0);
     EXPECT_DOUBLE_EQ(rectangle.getCenter().y, 1.5);
 
+    // Edge case: scale with factor = 0.0.
+    EXPECT_THROW(rectangle.scale(0.0), std::invalid_argument);
+
     // Test getName().
     EXPECT_STREQ(rectangle.getName().data(), "RECTANGLE");
 }
@@ -58,6 +61,9 @@ TEST(CircleTest, ConstructorAndMethods) {
     // After scaling the center should still be = { 5.0, 5.0 }.
     EXPECT_DOUBLE_EQ(circle.getCenter().x, 5.0);
     EXPECT_DOUBLE_EQ(circle.getCenter().y, 5.0);
+
+    // Edge case: scale with factor = 0.0.
+    EXPECT_THROW(circle.scale(0.0), std::invalid_argument);
 
     // Test getName().
     EXPECT_STREQ(circle.getName().data(), "CIRCLE");
