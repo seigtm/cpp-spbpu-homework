@@ -93,7 +93,6 @@ TEST(SortingTest, CompareShapes) {
     } };
     std::ranges::sort(shapes, less_with_dereferencing);
 
-
     // Check sorting order.
     for(std::size_t i{}; i < shapes.size(); ++i) {
         EXPECT_DOUBLE_EQ(shapes[i]->getArea(), expected_areas[i]);
