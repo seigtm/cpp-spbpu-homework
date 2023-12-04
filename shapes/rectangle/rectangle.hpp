@@ -37,6 +37,7 @@ public:
     /**
      * @brief Scales the rectangle isotropically relative to its center by the specified factor.
      * @param factor The scaling factor.
+     * @throws std::invalid_argument if the provided factor is not valid (is equal to 0).
      */
     void scale(double factor) override;
 
