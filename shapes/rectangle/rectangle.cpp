@@ -1,9 +1,10 @@
 #include "rectangle/rectangle.hpp"
 
-#include <stdexcept>
+#include <stdexcept>    // std::invalid_argument.
+#include <string_view>  // std::string_view.
 
-#include "shape/shape.hpp"
-#include "point/point.hpp"
+#include "point/point.hpp"  // setm::Point.
+#include "shape/shape.hpp"  // setm::Shape.
 
 namespace setm {
 
@@ -32,7 +33,7 @@ Point Rectangle::getCenter() const {
     return { (bottomLeft_.x + topRight_.x) / 2, (bottomLeft_.y + topRight_.y) / 2 };
 }
 
-const char* Rectangle::getName() const {
+std::string_view Rectangle::getName() const {
     return "RECTANGLE";
 }
 

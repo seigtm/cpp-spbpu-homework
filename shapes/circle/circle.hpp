@@ -1,7 +1,9 @@
 #pragma once
 
-#include "point/point.hpp"
-#include "shape/shape.hpp"
+#include <string_view>  // std::string_view.
+
+#include "point/point.hpp"  // setm::Point.
+#include "shape/shape.hpp"  // setm::Shape.
 
 namespace setm {
 
@@ -44,7 +46,7 @@ public:
      * @brief Gets the name of the shape (in this case, "CIRCLE").
      * @return The name of the shape as a C-style string.
      */
-    const char* getName() const override;
+    std::string_view getName() const override;
 
 private:
     Point center_;   // The center coordinates of the circle.

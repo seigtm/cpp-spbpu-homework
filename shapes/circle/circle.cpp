@@ -1,7 +1,8 @@
 #include "circle/circle.hpp"
 
-#include <numbers>
-#include <stdexcept>
+#include <numbers>      // std::numbers::pi_v.
+#include <stdexcept>    // std::invalid_argument.
+#include <string_view>  // std::string_view.
 
 namespace setm {
 
@@ -24,7 +25,7 @@ Point Circle::getCenter() const {
     return center_;
 }
 
-const char* Circle::getName() const {
+std::string_view Circle::getName() const {
     return "CIRCLE";
 }
 

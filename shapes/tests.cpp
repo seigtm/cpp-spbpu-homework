@@ -1,7 +1,8 @@
-#include <algorithm>  // std::sort.
-#include <cstddef>    // std::size_t.
-#include <numbers>    // std::numbers::pi_v.
-#include <vector>     // std::vector.
+#include <algorithm>    // std::sort.
+#include <cstddef>      // std::size_t.
+#include <numbers>      // std::numbers::pi_v.
+#include <string_view>  // std::string_view.
+#include <vector>       // std::vector.
 
 #include "point/point.hpp"          // setm::Point.
 #include "shape/shape.hpp"          // setm::Shape.
@@ -33,7 +34,7 @@ TEST(RectangleTest, ConstructorAndMethods) {
     EXPECT_DOUBLE_EQ(rectangle.getCenter().y, 1.5);
 
     // Test getName().
-    EXPECT_STREQ(rectangle.getName(), "RECTANGLE");
+    EXPECT_STREQ(rectangle.getName().data(), "RECTANGLE");
 }
 
 TEST(CircleTest, ConstructorAndMethods) {
@@ -59,7 +60,7 @@ TEST(CircleTest, ConstructorAndMethods) {
     EXPECT_DOUBLE_EQ(circle.getCenter().y, 5.0);
 
     // Test getName().
-    EXPECT_STREQ(circle.getName(), "CIRCLE");
+    EXPECT_STREQ(circle.getName().data(), "CIRCLE");
 }
 
 TEST(SortingTest, CompareShapes) {

@@ -1,8 +1,9 @@
 #pragma once
 
-#include <compare>  // std::partial_ordering.
+#include <compare>      // std::partial_ordering.
+#include <string_view>  // std::string_view.
 
-#include "point/point.hpp"
+#include "point/point.hpp"  // setm::Point.
 
 namespace setm {
 
@@ -48,9 +49,9 @@ public:
 
     /**
      * @brief Pure virtual function to get the name of the shape.
-     * @return The name of the shape as a C-style string.
+     * @return The name of the shape.
      */
-    virtual const char* getName() const = 0;
+    virtual std::string_view getName() const = 0;
 
     /**
      * @brief Spaceship operator to compare shapes based on their areas.
