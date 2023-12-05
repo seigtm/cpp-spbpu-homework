@@ -75,7 +75,7 @@ std::size_t Date::Difference(const Date& first, const Date& second) noexcept {
 }
 
 unsigned Date::DaysInMonth(int year, unsigned month) {
-    std::array<unsigned, 12> DAYS_IN_MONTH_ = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    static const std::array<unsigned, 12> DAYS_IN_MONTH_ = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     // It it's February, check if it's a leap year.
     if(month == 2)
